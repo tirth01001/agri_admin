@@ -139,7 +139,7 @@ List<BarChartGroupData> barGroups(List<DocumentSnapshot> data,{String type="y"})
   if(type == "y"){
     yaxis = List.generate(data.length, (index){
       DocumentSnapshot snaps  = data[index];
-      return snaps.get('total')  ;
+      return snaps.get('total').toDouble();
     });
   }else if ( type == "m"){
     Map<String,dynamic> dobj = (data.last.data() as Map<String,dynamic>);
@@ -150,7 +150,7 @@ List<BarChartGroupData> barGroups(List<DocumentSnapshot> data,{String type="y"})
     yaxis = List.generate(keys.length, (index){
       
       Map<String,dynamic> valu  = data.last.get(keys[index]);
-      return valu["total"];
+      return valu["total"].toDouble();
     });
   }
   double maxValue = yaxis.reduce((a, b) => a > b ? a : b);

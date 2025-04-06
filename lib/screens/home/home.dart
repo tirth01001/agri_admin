@@ -1,22 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fl_chart/fl_chart.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dashboard/components/product_card.dart';
 import 'package:flutter_dashboard/main.dart';
-import 'package:flutter_dashboard/model/popular.dart';
-import 'package:flutter_dashboard/my_screen/order_screen/components/order_view_card.dart';
-import 'package:flutter_dashboard/my_screen/product_screen/detail_screen.dart';
 import 'package:flutter_dashboard/screens/home/chart_conf.dart';
 import 'package:flutter_dashboard/screens/home/components/dash_box.dart';
 import 'package:flutter_dashboard/screens/home/hearder.dart';
-import 'package:flutter_dashboard/screens/home/most_popular.dart';
-import 'package:flutter_dashboard/screens/home/search_field.dart';
-import 'package:flutter_dashboard/screens/home/special_offer.dart';
-import 'package:flutter_dashboard/screens/mostpopular/most_popular_screen.dart';
-import 'package:flutter_dashboard/screens/special_offers/special_offers_screen.dart';
 import 'package:flutter_dashboard/splesh_screen.dart';
-import 'package:rxdart/rxdart.dart';
 
 class HomeScreen extends StatefulWidget {
   final String title;
@@ -142,74 +131,65 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
 
-        const SizedBox(height: 20,),
-
-        if(snaps.isNotEmpty)
-        const Text("Yearly Chart",style: TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.bold
-        ),),
-        const SizedBox(height: 20,),
-
-        if(snaps.isNotEmpty)
-          Container(
-            width: maxW,
-            height: 300,
-            decoration: BoxDecoration(
-              color: Colors.grey.shade200,
-              borderRadius: BorderRadius.circular(8)
-            ),
-            child: BarChart(
-              BarChartData(
-                barTouchData: barTouchData,
-                titlesData: titlesData(snaps),
-                borderData: borderData,
-                barGroups: barGroups(snaps),
-                gridData: const FlGridData(show: false),
-                alignment: BarChartAlignment.spaceAround,
-                maxY: 150,
-              )
-            )
-          ),
-        const SizedBox(height: 20,),
-
-        if(snaps.isNotEmpty)
-        const Text("Monthly Chart",style: TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.bold
-        ),),
-        const SizedBox(height: 20,),
-
-        if(snaps.isNotEmpty)
-          Container(
-            width: maxW,
-            height: 300,
-            decoration: BoxDecoration(
-              color: Colors.grey.shade200,
-              borderRadius: BorderRadius.circular(8)
-            ),
-            child: BarChart(
-              BarChartData(
-                barTouchData: barTouchData,
-                titlesData: titlesData(snaps,type: "m"),
-                borderData: borderData,
-                barGroups: barGroups(snaps,type: "m"),
-                gridData: const FlGridData(show: false),
-                alignment: BarChartAlignment.spaceAround,
-                maxY: 150,
-              )
-            )
-          ),
         // const SizedBox(height: 20,),
-        // SingleChildScrollView(
-        //   scrollDirection: Axis.horizontal,
-        //   child: Row(
-        //     children: List.generate(4, (index){
-          
-        //       return OrderViewCard(tempImage: fakeImage[index],);
-        //     }),
+
+        // if(snaps.isNotEmpty)
+        // const Text("Yearly Chart",style: TextStyle(
+        //   fontSize: 18,
+        //   fontWeight: FontWeight.bold
+        // ),),
+        // const SizedBox(height: 20,),
+
+        // if(snaps.isNotEmpty)
+        //   Container(
+        //     width: maxW,
+        //     height: 300,
+        //     decoration: BoxDecoration(
+        //       color: Colors.grey.shade200,
+        //       borderRadius: BorderRadius.circular(8)
+        //     ),
+        //     child: BarChart(
+        //       BarChartData(
+        //         barTouchData: barTouchData,
+        //         titlesData: titlesData(snaps),
+        //         borderData: borderData,
+        //         barGroups: barGroups(snaps),
+        //         gridData: const FlGridData(show: false),
+        //         alignment: BarChartAlignment.spaceAround,
+        //         maxY: 150,
+        //       )
+        //     )
         //   ),
-        // )
+        // const SizedBox(height: 20,),
+
+        // if(snaps.isNotEmpty)
+        // const Text("Monthly Chart",style: TextStyle(
+        //   fontSize: 18,
+        //   fontWeight: FontWeight.bold
+        // ),),
+        // const SizedBox(height: 20,),
+
+        // if(snaps.isNotEmpty)
+        //   Container(
+        //     width: maxW,
+        //     height: 300,
+        //     decoration: BoxDecoration(
+        //       color: Colors.grey.shade200,
+        //       borderRadius: BorderRadius.circular(8)
+        //     ),
+        //     child: BarChart(
+        //       BarChartData(
+        //         barTouchData: barTouchData,
+        //         titlesData: titlesData(snaps,type: "m"),
+        //         borderData: borderData,
+        //         barGroups: barGroups(snaps,type: "m"),
+        //         gridData: const FlGridData(show: false),
+        //         alignment: BarChartAlignment.spaceAround,
+        //         maxY: 150,
+        //       )
+        //     )
+        //   ),
+        // 
         
       ],
     );
